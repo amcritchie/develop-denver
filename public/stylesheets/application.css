@@ -45,7 +45,7 @@ body {
     text-decoration: none;
     color: #404040; }
     .media-container a:hover div {
-      background-color: #c8c8c8; }
+      background-color: #d4d4d4; }
   .media-container .media {
     width: 100%;
     float: left;
@@ -83,7 +83,11 @@ input, textarea {
 
 .centered {
   margin-left: 5%;
-  margin-right: 5%; }
+  margin-right: 5%;
+  text-align: center; }
+  .centered button {
+    font-size: 1.25em;
+    font-weight: bold; }
   @media screen and (min-device-width: 40.5em) {
     .centered {
       margin-left: 25%;
