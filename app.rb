@@ -1,8 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
-require 'rack-flash'
-require 'sinatra/reloader'
-require 'sinatra/partial'
+require 'action_view'
+require 'date'
+require 'active_support'
 
 # include all .rb files in models directory
 Dir[File.dirname(__FILE__) + '/models/*.rb'].each { |file| require file }
@@ -11,22 +11,46 @@ class App < Sinatra::Application
 
   #initial application settings
   set :root, File.dirname(__FILE__)
-  enable :sessions
-  use Rack::Flash
   register Sinatra::ActiveRecordExtension
-
-  #using sinatra-partials gem with settings
-  register Sinatra::Partial
-  set :partial_template_engine, :erb
-  enable :partial_underscores
-
-  #use reloader in development
-  configure :development do
-    register Sinatra::Reloader
-  end
+  include ActionView::Helpers::DateHelper
 
   get "/" do
-    erb :index
+    messages = Message.order(updated_at: :desc)
+    erb :index, locals: {messages: messages}
   end
 
+  get "/messages" do
+
+  end
+
+  get "/messages/:id" do
+    message = Message.find(params[:id])
+    erb :message, locals: {message: message}
+  end
+
+  get "/messages/new" do
+
+  end
+
+  post "/messages" do
+    Message.create(
+      message: params[:message],
+      name: params[:name]
+    )
+    redirect "/"
+  end
+
+
+  patch "/messages/:id" do
+  message = Message.find(params[:id])
+  message.update(message: params[:message])
+  redirect "/"
+  end
+
+
+  delete "/messages/:id" do
+    message = Message.find(params[:id])
+    message.destroy
+    redirect "/"
+  end
 end

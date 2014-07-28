@@ -8,9 +8,10 @@ gem 'rake'
 gem 'rack-flash3'
 gem 'pg'
 gem 'sass'
-gem 'compass'
 gem 'susy'
 gem 'sinatra-partial'
+gem 'actionview', '~> 4.1.4'
+gem 'activesupport', '~> 4.1.4'
 
 
 group :test, :development do

@@ -1,0 +1,29 @@
+<div class="media-container">
+  <div class="media">
+    <div class="img">
+      <img src="/images/glogo.png">
+    </div>
+    <div class="media-text">
+      <span><form method="post" action="/messages/<%= message[:id] %>" id="update">
+        <input type="hidden" name="_method" value="patch">
+        <textarea name="message" id="message"><%= message[:message] %></textarea><br>
+      </form></span>
+    </div>
+    <div class="bd">
+      <span>
+        <strong><%= message[:name] %></strong>
+        <%= time_ago_in_words(message[:updated_at]) %> ago
+      </span>
+    </div>
+    <form action="/messages/<%= message[:id] %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Delete</button>
+    </form>
+  </div>
+  <button class="button" form="update">Update Message</button>
+  <form method="get" action="/">
+    <button class="button">Home</button>
+  </form>
+</div>
+
+

@@ -1,0 +1,96 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+body {
+  padding: 1em 0 0 0;
+  margin: 0;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Open Sans'; }
+  body:after {
+    content: " ";
+    display: block;
+    clear: both; }
+  @media screen and (min-device-width: 40.5em) {
+    body {
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto; }
+      body:after {
+        content: " ";
+        display: block;
+        clear: both; } }
+
+#header {
+  text-align: center; }
+  #header img {
+    width: 100%;
+    margin: 0;
+    padding: 0; }
+    @media screen and (min-device-width: 40.5em) {
+      #header img {
+        width: 50%; } }
+
+.media, .bd, .media-text {
+  overflow: hidden;
+  zoom: 1; }
+
+.media-container {
+  margin-left: 5%;
+  margin-right: 5%; }
+  @media screen and (min-device-width: 40.5em) {
+    .media-container {
+      margin-left: 25%;
+      margin-right: 25%; } }
+  .media-container a {
+    text-decoration: none;
+    color: #404040; }
+    .media-container a:hover div {
+      background-color: #c8c8c8; }
+  .media-container .media {
+    width: 100%;
+    float: left;
+    margin-right: 1.69492%;
+    background-color: #eee;
+    border-radius: .25em;
+    padding: .75em;
+    margin: .5em auto;
+    box-sizing: border-box; }
+    .media-container .media img {
+      display: block;
+      width: 20%;
+      margin-right: 1em;
+      float: left; }
+    .media-container .media .bd {
+      float: right;
+      font-size: .8rem;
+      margin-top: .25em; }
+    .media-container .media button {
+      background-color: red;
+      border-radius: none;
+      border: 1px solid #990000;
+      color: white; }
+
+input, textarea {
+  width: 100%;
+  padding: .5em .5em;
+  font-size: 1em;
+  box-sizing: border-box;
+  resize: none;
+  color: #404040; }
+
+.form * {
+  margin: .25em 0; }
+
+.centered {
+  margin-left: 5%;
+  margin-right: 5%; }
+  @media screen and (min-device-width: 40.5em) {
+    .centered {
+      margin-left: 25%;
+      margin-right: 25%; } }
+
+.button {
+  background-color: #0080ff;
+  color: white;
+  border: 1px solid #005299;
+  border-radius: none; }

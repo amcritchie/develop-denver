@@ -1,1 +1,33 @@
-<h1>Hello World!</h1>
+<div class="form centered">
+  <form action="/messages" method="post">
+    <input name="name" id="name" required placeholder="enter your name"><br>
+    <textarea name="message" id="message" required placeholder="enter a message"></textarea><br>
+    <button class="button">Submit</button>
+  </form>
+</div>
+
+<div class="media-container">
+  <% messages.each do |message| %>
+    <% time = time_ago_in_words(message[:updated_at]) %>
+    <a href="/messages/<%= message[:id] %>">
+      <div class="media">
+        <div class="img">
+          <img src="/images/glogo.png">
+        </div>
+
+        <div class="media-text">
+
+          <%= message[:message] %>
+        </div>
+        <br>
+
+        <div class="bd"><strong><%= message[:name] %></strong> <%= time %> ago</div>
+
+        <form action="/messages/<%= message[:id] %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button>Delete</button>
+        </form>
+      </div>
+    </a>
+  <% end %>
+</div>
